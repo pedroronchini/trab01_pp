@@ -3,12 +3,11 @@
 #include <string.h>
 #include "mpi.h"
 
-int main(int argc, char *argv[])
-{
-   
-  int ret, rank, size, i, tag,fatfinal=1;
-  int  n=0, aux=0, aux1=0, fat=1, fat1=1, j=1;
-  double tempo=0;
+int main(int argc, char *argv[]) {
+  
+  int ret, rank, size, i, tag;
+  int  n = 0, aux = 0, aux1 = 0, fat = 1, fat1 = 1, j = 1, fatfinal = 1;
+  double tempo;
   //  mpz_t var2; //declaração de um numero gigante
  
   MPI_Status status;
@@ -33,8 +32,8 @@ int main(int argc, char *argv[])
 
     ret = MPI_Send(&n, 1, MPI_INT, 2, tag, MPI_COMM_WORLD);//envia o valor a ser calculado para o no 2 fazer o calculo certo
     aux= n / 2;
-    ret = MPI_Send(&aux, 1, MPI_INT, 1, tag, MPI_COMM_WORLD);//envia o valor a ser calculado para os  nos
-    printf("Valor enviado para o no=> %d\n", n);
+    ret = MPI_Send(&aux, 1, MPI_INT, 1, tag, MPI_COMM_WORLD);//envia o valor a ser calculado para os nos
+    printf("Valor enviado para o no => %d\n", n);
   }
   
   if(rank == 1) {
@@ -57,9 +56,9 @@ int main(int argc, char *argv[])
     }
          
     fatfinal = fatfinal * fat1;
-    printf("\nfatorial final eh->%d",fatfinal);
+    // printf("\nfatorial final eh->%d",fatfinal);
     tempo = MPI_Wtime()-tempo;
-    printf("\nTempo total de processamento com %d no(s): %f seg\n\n", size, tempo); 
+    // printf("\nTempo total de processamento com %d no(s): %f seg\n\n", size, tempo); 
   }
   
   ret = MPI_Finalize();
