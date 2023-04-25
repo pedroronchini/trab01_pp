@@ -12,6 +12,7 @@ int main(int argc, char *argv[]) {
   tempo = clock();
 
   mpz_init_set_ui(fat, 1); // Inicializa fat com 1
+  mpz_init_set_ui(fat1, 1); // Inicializa fat1 com 1
   mpz_init_set_ui(fatfinal, 1); // Inicializa fatfinal com 1
   
   if (n > 1) {
@@ -28,9 +29,7 @@ int main(int argc, char *argv[]) {
       mpz_mul_ui(fat1, fat1, j); // Multiplica fat1 por j
     }
     // fatfinal = fatfinal * fat1;
-    mpz_mult(fatfinal, fatfinal, fat1); // Multiplica fatfinal por fat1
-  } else {
-    fatfinal = 1;
+    mpz_mul(fatfinal, fatfinal, fat1); // Multiplica fatfinal por fat1
   }
 
   gmp_printf("Fatorial é: %Zd\n", fatfinal);

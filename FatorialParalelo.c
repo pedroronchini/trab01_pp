@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
   
   int ret, rank, size, i, tag;
-  int  n = 018, aux = 0, aux1 = 0, fat = 1, fat1 = 1, j = 1, fatfinal = 1;
+  int  n = 18, aux = 0, aux1 = 0, fat = 1, fat1 = 1, j = 1, fatfinal = 1;
   double tempo;
   //  mpz_t var2; //declaração de um numero gigante
  
@@ -19,7 +19,6 @@ int main(int argc, char *argv[]) {
   tempo = MPI_Wtime();
   
   if (rank == 0) {
-    n = 5;
     if (size == 1) {
         for (i = 1;i <= n; i++) {
             fatfinal = fatfinal * i;
