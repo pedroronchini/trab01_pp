@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
   
-  int n = 18, aux = 0, aux1 = 0, j = 1;
+  int n = 1526255, aux = 0, aux1 = 0, j = 1;
   mpz_t fat, fat1, fatfinal;
   double tempo;
   
