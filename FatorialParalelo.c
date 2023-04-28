@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
   if(rank == 1) {
     ret = MPI_Recv(&aux,1, MPI_INT, 0, tag, MPI_COMM_WORLD, &status);
     for(j = 1; j <= aux; j++) {
-        sleep(00002);
+        //sleep(00002);
         // fat = fat * j;
         mpz_mul_ui(fat, fat, j);
     }
@@ -46,14 +46,14 @@ int main(int argc, char *argv[]) {
     ret = MPI_Recv(&aux,1, MPI_INT, 1, tag, MPI_COMM_WORLD, &status);
     
     for(j = aux1 + 1; j <= n; j++) {
-        sleep(00002);
+        //sleep(00002);
         // fat1 = fat1 * j;
         mpz_mul_ui(fat1, fat1, j);
     }
          
     // fatfinal = fatfinal * fat1;
     mpz_mul(fatfinal, fatfinal, fat1);
-    printf("\nfatorial final eh->%Zd", fatfinal);
+    gmp_printf("\nfatorial final eh->%Zd", fatfinal);
     tempo = MPI_Wtime()-tempo;
     printf("\nTempo total de processamento com %d no(s): %f seg\n\n", size, tempo); 
   }
